@@ -1,0 +1,94 @@
+{
+    "About": {
+        "Name": "Active Object Exporter",
+        "Author": "Conceptgame",
+        "Copyright": "Copyright (C) 2021 Conceptgame",
+        "Comment": "ActiveObjectExporter, v1.0",
+        "URL": "",
+        "Help": "Help/ActiveObjectExporter/ActiveObjectExporter.chm",
+        "Identifier": "AOEX"
+    },
+    "ActionMenu": [
+		    "Separator",
+        [
+            0,
+            "Export animation"
+        ],
+		[
+            1,
+            "SetExportPath"
+        ],
+		[
+            2,
+            "SetFileName"
+        ],
+		    "Separator"
+    ],
+    "ConditionMenu": [
+        [
+            0,
+            "On animation exported"
+        ]
+    ],
+    "ExpressionMenu": [
+		"Separator",
+		 [
+            0,
+            "Last Error"
+        ],
+		[
+            1,
+            "Export progress"
+        ],
+		"Separator"
+    ],
+    "Actions": [
+        {
+            "Title": "Export animation %1 of %0",
+            "Parameters": [
+                [
+                    "Object",
+                    "Active object"
+                ],
+                [
+                    "Integer",
+                    "Animation number of object to export"
+                ]
+            ]
+        },
+		{
+            "Title": "Set export folder path to %0",
+            "Parameters": [
+                [
+                    "Text",
+                    "Export folder path"
+                ]
+            ]
+        },
+		{
+            "Title": "Set file name to %0",
+            "Parameters": [
+                [
+                    "Text",
+                    "File name"
+                ]
+            ]
+        }
+    ],
+    "Conditions": [
+		    {
+            "Title": "%o : On animation exported",
+			      "Triggered": false
+			}
+    ],
+    "Expressions": [
+        {
+            "Title": "LastError$(",
+            "Returns": "Text"
+        },
+		{
+            "Title": "ExportProgress(",
+            "Returns": "Integer"
+        }
+    ]
+}
