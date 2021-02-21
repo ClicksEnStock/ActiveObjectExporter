@@ -27,13 +27,15 @@ enum ErrorN
 {
 	noError,
 	ActiveUnknown,
-	AnimationNumberOutOfBound
+	AnimationNumberOutOfBound,
+	NoEventFile
 };
 
 static TCHAR* ErrorS[50] = {
 	_T("[00] No Error"),
 	_T("[01] Export failed: Active Unknown."),
 	_T("[02] Export failed: Animation Number Out Of Bound."),
+	_T("[03] Export failed: Cannot create event file."),
 	
 };
 

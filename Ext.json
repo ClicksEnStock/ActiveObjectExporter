@@ -16,10 +16,14 @@
         ],
 		[
             1,
-            "SetExportPath"
+            "Export all animations"
         ],
 		[
             2,
+            "SetExportPath"
+        ],
+		[
+            3,
             "SetFileName"
         ],
 		    "Separator"
@@ -38,7 +42,15 @@
         ],
 		[
             1,
-            "Export progress"
+            "Number of image exported"
+        ],
+		[
+            2,
+            "Export path"
+        ],
+		[
+            3,
+            "Export object name"
         ],
 		"Separator"
     ],
@@ -53,6 +65,15 @@
                 [
                     "Integer",
                     "Animation number of object to export"
+                ]
+            ]
+        },
+		{
+            "Title": "Export all animations of %0",
+            "Parameters": [
+                [
+                    "Object",
+                    "Active object"
                 ]
             ]
         },
@@ -87,8 +108,16 @@
             "Returns": "Text"
         },
 		{
-            "Title": "ExportProgress(",
+            "Title": "numberOfImageExported(",
             "Returns": "Integer"
+        },
+		{
+            "Title": "ExportPath(",
+            "Returns": "Text"
+        },
+		{
+            "Title": "ExportObjectName(",
+            "Returns": "Text"
         }
     ]
 }

@@ -34,8 +34,11 @@ public:
 	bool isDebugLoggingEnabled;
 	string exportPath;
 	string fileName;
+	TCHAR appPath[_MAX_PATH];
 	bool exportFinished;
-	int exportProgress;
+	bool exporting;
+	int numberOfImageExported;
+	HFILE metadataFile;
 
     /*  Add your actions, conditions and expressions as real class member
         functions here. The arguments (and return type for expressions) must
@@ -47,6 +50,7 @@ public:
 
     /// Actions
 	void ExportAnimation(LPRO pObj, int nAnim);
+	void ExportAllAnimations(LPRO pObj);
 	void SetExportPath(TCHAR* path);
 	void SetFilename(TCHAR* path);
 	
@@ -55,7 +59,9 @@ public:
 
     /// Expressions
 	TCHAR* LastError();
-	int ExportProgress();
+	TCHAR* ExportPath();
+	TCHAR* FileName();
+	int NumberOfImageExported();
 
     /* These are called if there's no function linked to an ID */
 
@@ -63,8 +69,9 @@ public:
     long Condition(int ID, LPRDATA rdPtr, long param1, long param2);
     long Expression(int ID, LPRDATA rdPtr, long param);
 
-
-
+	void ExportOneAnimation(LPRO pObj, int nAnim);
+	bool CreateMetadata();
+	void CloseMetadata();
 
     /*  These replace the functions like HandleRunObject that used to be
         implemented in Runtime.cpp. They work exactly the same, but they're
