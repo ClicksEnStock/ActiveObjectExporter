@@ -46,8 +46,8 @@ bool Extension::CreateMetadata()
 	}
 	else
 	{
-		string header = "CreateObject; object_name;" + fileName;
-		header += ";id; 1000; owner_id; -1; xpix; -300; ypix; 500; dir; 0; layer; 3; start_animation; 0\n";
+		string header = "CreateObject;object_name;" + fileName;
+		header += ";id;1000;owner_id;-1;xpix;-300;ypix;500;dir;0;layer;3;start_animation;0\r\n";
 		File_Write(metadataFile, (void*)header.c_str(), header.length());
 		return true;
 	}
@@ -127,7 +127,6 @@ void Extension::ExportOneAnimation(LPRO pObj, int nAnim)
 							name += "_dir" + std::to_string(nDir);
 							name += "_img" + std::to_string(nFrame);
 							string fullName = appPath + exportPath + name;
-							//printf("%d: export image to %s...\n", GetTickCount(), (fullName + ".png").c_str());
 							CImageFilterMgr* pImgMgr = rhPtr->rh4.rh4Mv->mvImgFilterMgr;
 							bool res = ExportImage(pImgMgr, (fullName+".png").c_str(), &sprite, FILTERID_PNG);
 							if (!res)
@@ -141,9 +140,9 @@ void Extension::ExportOneAnimation(LPRO pObj, int nAnim)
 							string sXact = std::to_string(ifo.imgXAction);
 							string sYact = std::to_string(ifo.imgYAction);
 							// Write metadata to event file
-							string loadingCommand = "LoadSprite; object_id; 1000; path;" + exportPath + name + ".png";
+							string loadingCommand = "LoadSprite;object_id;1000;path;" + exportPath + name + ".png";
 							loadingCommand += ";animation;" + std::to_string(nAnim) + ";direction;" + std::to_string(nDir) + ";image;" + std::to_string(nFrame);
-							loadingCommand += ";hot_spot_x;" + sX + ";hot_spot_y;" + sY + ";action_point_x;" + sXact + ";action_point_y;" + sYact + "\n";
+							loadingCommand += ";hot_spot_x;" + sX + ";hot_spot_y;" + sY + ";action_point_x;" + sXact + ";action_point_y;" + sYact + "\r\n";
 							if(isDebugLoggingEnabled)
 							{
 								printf("%d: loading command = %s\n", GetTickCount(), loadingCommand.c_str());
